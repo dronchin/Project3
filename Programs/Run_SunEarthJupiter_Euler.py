@@ -1,10 +1,10 @@
 from OOP.PlanetSystem_Euler import solarsystem, planet
 import numpy as np
 
-n = 500
+n = 1000
 tf = 100
 ti = 0
-h = 0.01
+h = 0.001
 
 Earth_mass = 0.0001
 Sun_mass = 1
