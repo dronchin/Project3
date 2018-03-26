@@ -19,10 +19,7 @@ def VV(x,y,vx,vy, otherx, othery, othermass):
     y_new = y + h*vy + (h**2/2)*ay
     r1_new = np.sqrt(x_new**2+y_new**2)
     r2_new = np.sqrt((otherx-x_new)**2 + (othery-y_new)**2)
-
-#     ax_new = acceleration(x_new, r_new)
     ax_new = acceleration(x_new, r1_new, 1) + acceleration((x_new-otherx), r2_new, othermass)
-#     ay_new = acceleration(y_new, r_new)
     ay_new = acceleration(y_new, r1_new, 1) + acceleration((y_new-othery), r2_new, othermass)
 
     vx_new = vx + h/2*(ax + ax_new)
