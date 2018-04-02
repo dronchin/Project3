@@ -5,10 +5,12 @@ class solarsystem(solarsystem):
     changes steps to use the new Euler method'''
     def Euler(self, CURplanet):
         ax, ay = self.Accel(CURplanet)
-        CURplanet.x = CURplanet.x + CURplanet.vx*self.h
-        CURplanet.y = CURplanet.y + CURplanet.vy*self.h
         CURplanet.vx = CURplanet.vx + ax*self.h
         CURplanet.vy = CURplanet.vy + ay*self.h
+
+        CURplanet.x = CURplanet.x + CURplanet.vx*self.h
+        CURplanet.y = CURplanet.y + CURplanet.vy*self.h
+
         CURplanet.xpos.append(CURplanet.x)
         CURplanet.ypos.append(CURplanet.y)
 

@@ -71,7 +71,7 @@ class solarsystem():
         plt.axis('equal')
         plt.show()
 
-    def showConservation(self):
+    def showConservation(self, isPlot):
         kenergies = []
         penergies = []
         AngMoments = []
@@ -98,20 +98,23 @@ class solarsystem():
         kenergies = np.asarray(kenergies)
         penergies = np.asarray(penergies)
         AngMoments = np.asarray(AngMoments)
-        for i in range(len(self.planets)):
-            plt.plot(range(self.N), kenergies[:,i], label=self.planets[i].id)
-        plt.legend()
-        plt.title("Kinetic Energy of the system over steps")
-        plt.show()
+        if isPlot:
+            for i in range(len(self.planets)):
+                plt.plot(range(self.N), kenergies[:,i], label=self.planets[i].id)
+            plt.legend()
+            plt.title("Kinetic Energy of the system over {} steps".format(self.N))
+            plt.show()
 
-        for i in range(1,len(self.planets)):
-            plt.plot(range(self.N), penergies[:,i-1], label=self.planets[i].id)
-        plt.legend()
-        plt.title("Potential Energy of the system over steps")
-        plt.show()
+            for i in range(1,len(self.planets)):
+                plt.plot(range(self.N), penergies[:,i-1], label=self.planets[i].id)
+            plt.legend()
+            plt.title("Potential Energy of the system over {} steps".format(self.N))
+            plt.show()
 
-        for i in range(1,len(self.planets)):
-            plt.plot(range(self.N), AngMoments[:,i-1], label=self.planets[i].id)
-        plt.legend()
-        plt.title("Angular Momentum of the system over steps")
-        plt.show()
+            for i in range(1,len(self.planets)):
+                plt.plot(range(self.N), AngMoments[:,i-1], label=self.planets[i].id)
+            plt.legend()
+            plt.title("Angular Momentum of the system over {} steps".format(self.N))
+            plt.show()
+
+        return kenergies, penergies, AngMoments
