@@ -30,4 +30,4 @@ fullModel = solarsystem(h, n, masterplanetlist)
 fullModel.run()
 fullModel.displaypaths()
 
-fullModel.showConservation()
+kenergies, penergies, AngMoments = fullModel.showConservation(True)

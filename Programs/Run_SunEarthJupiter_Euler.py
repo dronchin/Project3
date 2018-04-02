@@ -1,10 +1,10 @@
 from OOP.PlanetSystem_Euler import solarsystem, planet
 import numpy as np
 
-n = 1000
+n = 100
 tf = 100
 ti = 0
-h = 0.001
+h = 0.01
 
 Earth_mass = 0.0001
 Sun_mass = 1
@@ -30,4 +30,4 @@ Model = solarsystem(h, n, planetlist)
 Model.run()
 Model.displaypaths()
 
-Model.showConservation()
+kenergies, penergies, AngMoments = Model.showConservation(True)

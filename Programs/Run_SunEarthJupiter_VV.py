@@ -30,4 +30,4 @@ Model = solarsystem(h, n, planetlist)
 Model.run()
 Model.displaypaths()
 
-Model.showConservation()
+kenergies, penergies, AngMoments = Model.showConservation(True)
