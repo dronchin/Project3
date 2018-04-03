@@ -17,10 +17,10 @@ class planet():
         return np.sqrt((otherplanet.x-self.x)**2 + (otherplanet.y-self.y)**2)
     def kineticEnergy(self):
         return 0.5*self.mass*(self.vx**2+self.vy**2)
-    def potentialEnergy(self, sun):
-        return -4.0*np.pi**2*self.mass/(2*self.distance(sun))
-    def angularMomentum(self, sun):
-        return self.mass*self.distance(sun)*np.sqrt(self.vx**2+self.vy**2)
+    def potentialEnergy(self):
+        return -4.0*np.pi**2*self.mass/(2*np.sqrt(self.x**2+self.y**2))
+    def angularMomentum(self):
+        return self.mass*np.sqrt(self.x**2+self.y**2)*np.sqrt(self.vx**2+self.vy**2)
 
 
 class solarsystem():
@@ -35,11 +35,12 @@ class solarsystem():
     def Accel(self, CURplanet):
         accelx = 0
         accely = 0
+        const = -4*np.pi**2
         for other in self.planets:
             r = CURplanet.distance(other)
             if r != 0:
-                accelx += -4*np.pi**2*(CURplanet.x - other.x)/(r**3)*other.mass
-                accely += -4*np.pi**2*(CURplanet.y - other.y)/(r**3)*other.mass
+                accelx += const*(CURplanet.x - other.x)/(r**3)*other.mass
+                accely += const*(CURplanet.y - other.y)/(r**3)*other.mass
         return accelx, accely
 
     def VV(self, CURplanet):
@@ -86,9 +87,9 @@ class solarsystem():
             for CURplanet in self.planets:
                 kenergy = CURplanet.kineticEnergy()
                 if CURplanet.id != "sun":
-                    penergy = CURplanet.potentialEnergy(self.planets[0]) #assumes the sun is always the first planet
+                    penergy = CURplanet.potentialEnergy() #assumes the sun is always the first planet
                     penergystep.append(penergy)
-                    AngMoment = CURplanet.angularMomentum(self.planets[0]) #assumes the sun is always the first planet
+                    AngMoment = CURplanet.angularMomentum() #assumes the sun is always the first planet
                     AngMomentstep.append(AngMoment)
                 kenergystep.append(kenergy)
             kenergies.append(kenergystep)

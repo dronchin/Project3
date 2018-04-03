@@ -2,10 +2,10 @@ from OOP.PlanetSystem_Euler import solarsystem, planet
 import numpy as np
 import matplotlib.pyplot as plt
 
-n = 10000
+n = 1000
 tf = 100
 ti = 0
-h = 0.1
+h = 0.01
 
 Earth_mass = 0.0001
 Sun_mass = 1
