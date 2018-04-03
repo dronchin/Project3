@@ -2,8 +2,6 @@ from OOP.PlanetSystem_VV import solarsystem, planet
 import numpy as np
 
 n = 500
-tf = 100
-ti = 0
 h = 0.01
 
 Earth_mass = 0.0001

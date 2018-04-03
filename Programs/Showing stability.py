@@ -2,6 +2,7 @@ from OOP.PlanetSystem_Euler import solarsystem, planet
 import numpy as np
 import matplotlib.pyplot as plt
 
+#use 100000 steps to see long term effects
 n = 1000
 tf = 100
 ti = 0
@@ -31,7 +32,7 @@ Model1 = solarsystem(h, n, planetlist)
 Model1.run()
 kenergies1, penergies1, AngMoments1 = Model1.showConservation(False)
 
-
+#changes the class of solarsystem so that it uses the VV method
 from OOP.PlanetSystem_VV import solarsystem, planet
 
 Model2 = solarsystem(h, n, planetlist)
@@ -40,6 +41,7 @@ Model2.run()
 
 kenergies2, penergies2, AngMoments2 = Model2.showConservation(False)
 
+#plots for both energies and angular momentum for both euler and VV
 for i in range(len(planetlist)):
     plt.plot(range(n), kenergies1[:,i], label=planetlist[i][5]+"Euler")
     plt.plot(range(n), kenergies2[:,i], label=planetlist[i][5]+"VV")

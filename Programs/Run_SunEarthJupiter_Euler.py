@@ -1,7 +1,8 @@
 from OOP.PlanetSystem_Euler import solarsystem, planet
 import numpy as np
 
-n = 100
+#need
+n = 500
 tf = 100
 ti = 0
 h = 0.01

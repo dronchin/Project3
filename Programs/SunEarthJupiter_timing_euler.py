@@ -4,8 +4,6 @@ import matplotlib.pyplot as plt
 import time
 
 n = 10000
-tf = 100
-ti = 0
 h = 0.1
 
 Earth_mass = 0.0001
@@ -26,6 +24,8 @@ Jupiter_vely = np.pi*2/np.sqrt(2)
 planetlist = [[0,0,0,0,1, "sun"],
              [Earth_posx,Earth_posy,Earth_velx,Earth_vely, Earth_mass, "earth"],
              [Jupiter_posx,Jupiter_posy,Jupiter_velx,Jupiter_vely, Jupiter_mass, "jupiter"]]
+
+
 n_list = [1000,2000,3000,4000,5000,6000,7000,8000,9000,10000]
 times_euler = []
 for n in n_list:

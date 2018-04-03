@@ -11,6 +11,7 @@ Uranus_mass = 8.8E25/2.0E30
 Neptune_mass = 1.03E26/2.0E30
 Pluto_mass = 1.31E22/2.0E30
 
+#data taken from HORIZONS web interface program
 masterplanetlist = [[1.306159282417647E-03,6.513468272378295E-03,-6.395720460933692E-06*365.242,4.453045697891337E-06*365.242,1, "sun"],
     [-9.946414304930705E-01,-2.932158320553592E-02,3.391477521295081E-04*365.242,-1.725555172164105E-02*365.242, Earth_mass, "earth"],
     [-3.862930711302167E+00,-3.790635360952593E+00, 5.195720281733852E-03*365.242,-5.028017251762835E-03*365.242, Jupiter_mass, "jupiter"],
@@ -22,15 +23,17 @@ masterplanetlist = [[1.306159282417647E-03,6.513468272378295E-03,-6.395720460933
     [2.875186018417908E+01,-8.346262862932090E+00, 8.545835965514583E-04*365.242,3.033739601934005E-03*365.242, Neptune_mass, "neptune"],
     [1.102415247442523E+01,-3.165695356906997E+01, 3.041176499071855E-03*365.242, 3.772251131115861E-04*365.242, Pluto_mass, "pluto"]
     ]
-h = 0.001
+
+#need 
+h = 0.01
 n = 1000
 fullModel = solarsystem(h, n, masterplanetlist)
 
 
 fullModel.run()
-#fullModel.displaypaths()
+fullModel.displaypaths()
 
-#kenergies, penergies, AngMoments = fullModel.showConservation(True)
+kenergies, penergies, AngMoments = fullModel.showConservation(True)
 
 x = fullModel.planets[1].x
 y = fullModel.planets[1].y
